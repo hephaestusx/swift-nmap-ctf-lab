@@ -1,0 +1,13 @@
+[Unit]
+Description=CTF Nmap Servers Launcher
+After=network.target
+
+[Service]
+Type=simple
+User=autumn
+WorkingDirectory=/home/nmapctf
+ExecStart=/usr/bin/python3 /home/nmapctf/start_all_servers.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
