@@ -6,7 +6,7 @@ SWIFT NMAP Workshop, for october 3rd, 2025
 
 Instructions:
 
-Pre-Requisites: you should have a clean ubuntu LTS 22.04 server install, ready to go updated and upgraded WITH openssh already installed.
+Pre-Requisites: you should have a clean ubuntu LTS 22.04 server install, ready to go updated and upgraded WITH openssh already installed and scripts done if you have already done steps 1 and 2 (e.g you just duplicated that server once you made sure everything was running properly which would be fine)
 
 1. Create directory for /home/nmaplab (mkdir /home/nmaplab) 
 
