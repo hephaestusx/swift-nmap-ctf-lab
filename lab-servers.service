@@ -1,3 +1,5 @@
+##NOTE: PLEASE CHANGE THE DIRECTORY IF NOT DONE SO ALREADY TO (/home/nmaplab)!! PLEASE ALSO CONFIRM IF YOU CAN USE SAID DIRECTORY AND CAN BE ACCESSED, THIS SYSTEMD FILE IS CRUCIAL FOR BOOTING UP ALL SERVICES!!!!
+
 [Unit]
 Description=CTF Nmap Servers Launcher
 After=network.target
@@ -6,7 +8,7 @@ After=network.target
 Type=simple
 User=autumn
 WorkingDirectory=/home/nmapctf
-ExecStart=/usr/bin/python3 /home/nmapctf/start_all_servers.py
+ExecStart=/usr/bin/python3 /home/nmaplab/start_all_servers.py
 Restart=always
 
 [Install]
