@@ -1,0 +1,44 @@
+// readme_server.go
+package main
+
+import (
+	"fmt"
+	"net"
+)
+
+const (
+	PORT = "1234(CHANGE ME!)"
+	README = "Welcome to the CTF README server!\n\n" +
+		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n" +
+		"tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n" +
+		"veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n" +
+		"commodo consequat. Duis aute irure dolor in reprehenderit in voluptate\n" +
+		"velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\n" +
+		"occaecat cupidatat non proident, sunt in culpa qui officia deserunt\n" +
+		"mollit anim id est laborum.\n"
+)
+
+func handleConnection(conn net.Conn) {
+	defer conn.Close()
+	conn.Write([]byte(README))
+}
+
+func main() {
+	ln, err := net.Listen("tcp", ":"+PORT)
+	if err != nil {
+		fmt.Println("Listen error:", err)
+		return
+	}
+	defer ln.Close()
+
+	fmt.Println("README server listening on port", PORT, "...")
+
+	for {
+		conn, err := ln.Accept()
+		if err != nil {
+			fmt.Println("Accept error:", err)
+			continue
+		}
+		go handleConnection(conn)
+	}
+}
